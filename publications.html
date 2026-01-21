@@ -119,6 +119,32 @@
       color: #8a8a8a;
       font-size: 0.85rem;
     }
+    
+/* Presentation list with small thumbnails */
+.presentation {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.presentation img {
+  width: 70px;
+  height: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .presentation {
+    grid-template-columns: 1fr;
+  }
+
+  .presentation img {
+    width: 90px;
+  }
+}
+
   </style>
 </head>
 
@@ -266,31 +292,6 @@
 
   <!-- TODO: Add additional presentations here -->
 </ul>
-
-<!-- the following is for pcitures beside presentaiton-->
-.presentation {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-.presentation img {
-  width: 120px;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-@media (max-width: 600px) {
-  .presentation {
-    grid-template-columns: 1fr;
-  }
-  .presentation img {
-    width: 100%;
-    max-width: 280px;
-  }
-}
 
   
 <footer>
