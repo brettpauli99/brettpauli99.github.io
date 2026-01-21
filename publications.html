@@ -242,9 +242,57 @@
   </li>
 
 
+
+  
+  <li class="pub presentation">
+    <img src="assets/AFS_Pic.jpg" alt="American Fisheries Society presentation">
+
+    <div>
+      <strong>Pauli, B.</strong> (<!-- TODO: Year -->).
+      <!-- TODO: Presentation title -->.
+      <em>American Fisheries Society Annual Meeting</em>.
+    </div>
+  </li>
+
+  <li class="pub presentation">
+    <img src="assets/IMG_1014.JPG" alt="Conference presentation">
+
+    <div>
+      <strong>Pauli, B.</strong> (<!-- TODO: Year -->).
+      <!-- TODO: Presentation title -->.
+      <em><!-- TODO: Conference / venue --></em>.
+    </div>
+  </li>
+
   <!-- TODO: Add additional presentations here -->
 </ul>
 
+<!-- the following is for pcitures beside presentaiton-->
+.presentation {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.presentation img {
+  width: 120px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .presentation {
+    grid-template-columns: 1fr;
+  }
+  .presentation img {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+  
 <footer>
   Last updated: 2026-01-21
 </footer>
