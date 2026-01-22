@@ -119,52 +119,64 @@
       color: #8a8a8a;
       font-size: 0.85rem;
     }
-
-    /* Presentations with bullets and right-side thumbnails */
-    li.pub.presentation-right {
-      display: grid;
-      grid-template-columns: 1fr 70px; /* text | image */
-      gap: 0.75rem;
-      align-items: start;
-    }
-
-    li.pub.presentation-right img {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border: 1px solid #e0e0e0;
-      border-radius: 3px;
-      justify-self: end;
-    }
-
-    @media (max-width: 600px) {
-      li.pub.presentation-right {
-        grid-template-columns: 1fr;
-      }
-      li.pub.presentation-right img {
-        width: 100px;
-        height: 100px;
-        justify-self: start;
-      }   
-    }
-
-    
-    /* Custom bullet for grid list items */
+/* Presentations with bullets + right-side thumbnails */
 li.pub.presentation-right {
-  position: relative;
-  padding-left: 1.2rem;  /* space for bullet */
+  display: grid;
+
+  /* reserve space for bullet, then text, then image */
+  grid-template-columns: 1.2rem 1fr 120px;
+
+  column-gap: 0.9rem;
+  align-items: start;
+
+  /* keep normal list spacing */
+  margin: 0.85rem 0;
 }
 
+/* Hide the browser bullet for these items (we’ll draw our own) */
+li.pub.presentation-right {
+  list-style: none;
+}
+
+/* Custom bullet column */
 li.pub.presentation-right::before {
   content: "•";
-  position: absolute;
-  left: 0;
-  top: 0.15rem;          /* tweak to align with first line */
   font-size: 1.2rem;
   line-height: 1;
   color: #222;
+  margin-top: 0.15rem; /* aligns with first line of text */
 }
-    
+
+/* Text block stays in the middle column */
+li.pub.presentation-right > div {
+  min-width: 0; /* prevents weird overflow */
+}
+
+/* Thumbnail on the right */
+li.pub.presentation-right img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  justify-self: end;
+}
+
+/* Mobile: stack image below text */
+@media (max-width: 600px) {
+  li.pub.presentation-right {
+    grid-template-columns: 1.2rem 1fr;
+    row-gap: 0.6rem;
+  }
+
+  li.pub.presentation-right img {
+    width: 140px;
+    height: 140px;
+    grid-column: 2;      /* aligns under the text column */
+    justify-self: start;
+  }
+}
+
   </style>
 </head>
 
